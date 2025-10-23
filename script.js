@@ -85,6 +85,21 @@ if (contactForm) {
     contactForm.reset();
   });
 }
+
+// ===== Fade-in Animation =====
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+fadeElements.forEach(el => appearOnScroll.observe(el));
+
 // ===== Sliding Info Section =====
 const slides = document.querySelectorAll("#info-slider .slide");
 let currentSlide = 0;
@@ -96,5 +111,5 @@ function showNextSlide() {
 }
 
 if (slides.length > 0) {
-  setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+  setInterval(showNextSlide, 4000); // every 4 seconds
 }

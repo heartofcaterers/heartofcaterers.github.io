@@ -27,18 +27,16 @@
     </section>
 
     <section class="contact-form fade-in">
-      <form id="contactForm" action="https://formspree.io/f/xovkooqz" method="POST">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" required />
+      <form action="https://formspree.io/f/mnqkzxyz" method="POST">
+        <label>Name</label>
+  <input type="text" name="name" placeholder="Your Name" required>
+<label>Email</label>
+ <input type="email" name="email" placeholder="Your Email" required>
+<label>Message</label>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+    </form>
       <p id="form-status"></p>
     </section>
   </main>

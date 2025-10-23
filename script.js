@@ -1,24 +1,87 @@
-// Handle contact form submission
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("form-status");
+// // script.js — Heart of Caterers Website
+// 🔨🤖🔧 Created with love and buttercream 💛
 
-    if (form) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
+// ===== Scroll Fade-In Animation =====
+const fadeEls = document.querySelectorAll(".fade-in");
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
+const appearOptions = {
+  threshold: 0.2,
+  rootMargin: "0px 0px -50px 0px",
+};
 
-            if (name && email && message) {
-                status.textContent = "Thank you for your message, " + name + "! We'll get back to you soon.";
-                status.style.color = "green";
-                form.reset();
-            } else {
-                status.textContent = "Please fill out all fields before submitting.";
-                status.style.color = "red";
-            }
-        });
-    }
+const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("appear");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+fadeEls.forEach((el) => {
+  appearOnScroll.observe(el);
 });
+
+// ===== Mobile Navbar Toggle =====
+const menuBtn = document.createElement("div");
+menuBtn.classList.add("menu-btn");
+menuBtn.innerHTML = "☰";
+document.querySelector("header").prepend(menuBtn);
+
+const nav = document.querySelector("nav ul");
+
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("show");
+});
+
+// Close nav when a link is clicked (mobile UX)
+document.querySelectorAll("nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("show");
+  });
+});
+
+// ===== Back To Top Button =====
+const topBtn = document.createElement("button");
+topBtn.textContent = "↑";
+topBtn.classList.add("back-to-top");
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    topBtn.classList.add("visible");
+  } else {
+    topBtn.classList.remove("visible");
+  }
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+// ===== Contact Form Popup (no backend) =====
+const contactForm = document.querySelector("form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.textContent = "Thank you! We'll contact you soon. 💌";
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.classList.add("show");
+    }, 50);
+
+    setTimeout(() => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 300);
+    }, 3000);
+
+    contactForm.reset();
+  });
+}

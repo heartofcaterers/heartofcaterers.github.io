@@ -293,16 +293,56 @@ nav ul.show {
     font-size: 2rem;
   }
 }
-// ===== Sliding Info Section =====
-const slides = document.querySelectorAll("#info-slider .slide");
-let currentSlide = 0;
-
-function showNextSlide() {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
+/* ====== Info Slider Section ====== */
+#info-slider {
+  background: linear-gradient(135deg, #ffcb80, #ff9d00);
+  color: #222;
+  padding: 50px 20px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
-if (slides.length > 0) {
-  setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+#info-slider .slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#info-slider .slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#info-slider .slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+#info-slider h3 {
+  font-size: 1.6em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#info-slider p {
+  color: #222;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  #info-slider {
+    padding: 40px 15px;
   }
+  #info-slider h3 {
+    font-size: 1.3em;
+  }
+}

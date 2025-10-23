@@ -1,0 +1,295 @@
+/* ================================
+   Heart of Caterers - Modern Theme
+   Designed by HTML + CSS + JS 🤖
+================================== */
+
+/* ---- Global Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---- Header ---- */
+header {
+  background: linear-gradient(135deg, #5a0001, #b81f24);
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ---- Navigation ---- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f2d16b;
+}
+
+/* ---- Hero Section ---- */
+.hero {
+  background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+/* ---- Sections ---- */
+section {
+  padding: 60px 10%;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #5a0001;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #f2d16b;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
+/* ---- About ---- */
+.about p {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #444;
+}
+
+/* ---- Projects ---- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  padding: 15px;
+  color: #5a0001;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  padding: 0 15px 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ---- Contact Form ---- */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  background: #b81f24;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #5a0001;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: #2a2a2a;
+  color: #eee;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: #f2d16b;
+  text-decoration: none;
+}
+
+/* ---- Animations ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Back to Top ---- */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  background: #f2d16b;
+  color: #5a0001;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.back-to-top.visible {
+  opacity: 1;
+}
+
+/* ---- Popup Message ---- */
+.popup {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5a0001;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: bottom 0.4s ease;
+  z-index: 2000;
+}
+.popup.show {
+  bottom: 40px;
+}
+
+/* ---- Mobile Styles ---- */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #f2d16b;
+}
+
+nav ul.show {
+  display: flex !important;
+  flex-direction: column;
+  background: #5a0001;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  section {
+    padding: 40px 6%;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+}

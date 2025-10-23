@@ -293,19 +293,60 @@ nav ul.show {
     font-size: 2rem;
   }
 }
-/* ====== Info Slider Section ====== */
-#info-slider {
-  background: linear-gradient(135deg, #ffcb80, #ff9d00);
-  color: #222;
-  padding: 50px 20px;
+
+/* ===== Contact Section ===== */
+.contact-info {
   text-align: center;
-  overflow: hidden;
+  margin-top: 40px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  margin: 10px 0;
+  color: #444;
+}
+
+.contact-info a {
+  color: #ff9d00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #222;
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.social-links a {
+  color: #ff9d00;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  color: #222;
+}
+
+/* ===== Info Slider ===== */
+#info-slider {
+  background: linear-gradient(135deg, rgba(255,157,0,0.85), rgba(255,203,128,0.85)),
+              url('https://images.unsplash.com/photo-1590080875838-4f9150ed27e1?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 #info-slider .slider-container {
   position: relative;
-  width: 100%;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -327,22 +368,56 @@ nav ul.show {
 }
 
 #info-slider h3 {
-  font-size: 1.6em;
+  font-size: 1.7em;
   color: #fff;
   margin-bottom: 10px;
 }
 
 #info-slider p {
+  font-size: 1.1em;
   color: #222;
-  font-size: 1em;
   font-weight: 500;
 }
 
+/* ===== Footer ===== */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+/* ===== Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   #info-slider {
     padding: 40px 15px;
   }
+
   #info-slider h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
+  }
+
+  #info-slider p {
+    font-size: 0.95em;
   }
 }

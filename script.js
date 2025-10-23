@@ -85,3 +85,16 @@ if (contactForm) {
     contactForm.reset();
   });
 }
+// ===== Sliding Info Section =====
+const slides = document.querySelectorAll("#info-slider .slide");
+let currentSlide = 0;
+
+function showNextSlide() {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+
+if (slides.length > 0) {
+  setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+}

@@ -1,0 +1,250 @@
+/* ===== General Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  background-color: #fff8f2;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  background: #ff9d00;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 1.8em;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #222;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 60px 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff9d00;
+  font-size: 2em;
+}
+
+.center-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* ===== About Page ===== */
+.about {
+  text-align: center;
+}
+
+.about img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Projects Page ===== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  color: #ff9d00;
+  padding: 10px;
+}
+
+.project-card p {
+  padding: 0 10px 20px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* ===== Contact Section ===== */
+.contact-info {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  margin: 10px 0;
+  color: #444;
+}
+
+.contact-info a {
+  color: #ff9d00;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #222;
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.social-links a {
+  color: #ff9d00;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  color: #222;
+}
+
+/* ===== Info Slider ===== */
+#info-slider {
+  background: linear-gradient(135deg, rgba(255,157,0,0.85), rgba(255,203,128,0.85)),
+              url('https://images.unsplash.com/photo-1590080875838-4f9150ed27e1?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#info-slider .slider-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#info-slider .slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#info-slider .slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+#info-slider h3 {
+  font-size: 1.7em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#info-slider p {
+  font-size: 1.1em;
+  color: #222;
+  font-weight: 500;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+/* ===== Fade Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #info-slider {
+    padding: 40px 15px;
+  }
+
+  #info-slider h3 {
+    font-size: 1.4em;
+  }
+
+  #info-slider p {
+    font-size: 0.95em;
+  }
+
+  .project-card img {
+    height: 180px;
+  }
+}

@@ -293,3 +293,82 @@ nav ul.show {
     font-size: 2rem;
   }
 }
+/* ===== Animations + Mobile Nav + Popup Styles ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile menu button */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #d4af37;
+  margin-left: 15px;
+}
+
+nav ul.show {
+  display: flex !important;
+  flex-direction: column;
+  background: #222;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  background: #d4af37;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.back-to-top.visible {
+  opacity: 1;
+}
+
+/* Popup Message */
+.popup {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: bottom 0.4s ease;
+  z-index: 2000;
+}
+.popup.show {
+  bottom: 40px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
